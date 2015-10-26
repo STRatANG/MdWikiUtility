@@ -18,9 +18,13 @@ function make_index($file_name)
     }
 
     //ディレクトリ階層数
-    $dir_class = substr_count($tree_result[$i], "│")
-                +substr_count($tree_result[$i], "├")
-                +substr_count($tree_result[$i], "└");
+    //chromeから実行時
+    $dir_class = substr_count($tree_result[$i], "|")
+                +substr_count($tree_result[$i], "`");
+    //server内で実行時(treeコマンドの表示に用いられる文字が異なる)
+    //$dir_class = substr_count($tree_result[$i], "│")
+    //            +substr_count($tree_result[$i], "├")
+    //            +substr_count($tree_result[$i], "└");
 
     //列挙時の符号
     $sign = "";
