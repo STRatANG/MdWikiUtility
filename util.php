@@ -1,11 +1,11 @@
 <?php
 
-function make_index($file_name)
+function make_index($file_name, $dir_name)
 {
   $fp = fopen(__DIR__."/".$file_name, "w");
   fwrite($fp, "#index\n");
 
-  $tree_result = explode("\n", shell_exec("tree -N ."));
+  $tree_result = explode("\n", shell_exec("tree -N ".$dir_name));
 
   //リンク作成用ディレクトリ構造保存配列
   $dir_array = array();
